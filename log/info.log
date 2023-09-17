@@ -1,0 +1,15 @@
+2023-09-17 16:19:17	[INFO]	server/server.go:40	Starting Message Relay
+2023-09-17 16:19:17	[INFO]	poller/poller.go:35	Poller is starting
+2023-09-17 16:19:19	[INFO]	server/server.go:47	Starting graceful shutdown Message Relay
+2023-09-17 16:19:19	[INFO]	poller/poller.go:51	Poller is shutting down
+2023-09-17 16:19:19	[INFO]	server/server.go:50	Exitting
+2023-09-17 16:27:26	[INFO]	server/server.go:40	Starting Message Relay
+2023-09-17 16:27:26	[INFO]	poller/poller.go:36	Poller is starting
+2023-09-17 16:27:39	[INFO]	server/server.go:47	Starting graceful shutdown Message Relay
+2023-09-17 16:27:39	[INFO]	poller/poller.go:60	Poller is shutting down
+2023-09-17 16:27:39	[INFO]	server/server.go:50	Exitting
+2023-09-17 16:38:11	[INFO]	server/server.go:48	Starting Message Relay
+2023-09-17 16:38:11	[INFO]	poller/poller.go:36	Poller is starting
+2023-09-17 16:38:17	[INFO]	server/server.go:56	Starting graceful shutdown Message Relay
+2023-09-17 16:38:17	[INFO]	poller/poller.go:60	Poller is shutting down
+2023-09-17 16:38:17	[INFO]	server/server.go:62	Exitting

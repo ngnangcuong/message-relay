@@ -1,0 +1,6 @@
+log:
+  level: INFO
+  path: log/info.log
+
+database:
+  url: "postgres://pqgotest:password@localhost/pqgotest?sslmode=verify-full"
