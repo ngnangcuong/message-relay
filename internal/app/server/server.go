@@ -29,9 +29,8 @@ func NewServer(config *config.Config, db *sql.DB) *Server {
 	}
 
 	poller := poller.NewPoller(poller.PollerParams{
-		Logger:   logger,
-		Interval: 1 * time.Second,
-		DB:       db,
+		Logger: logger,
+		DB:     db,
 	})
 
 	remover := remover.NewRemover(remover.RemoverParams{

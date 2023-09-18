@@ -2,11 +2,11 @@ package remover
 
 import (
 	"database/sql"
-	"fmt"
 	"sync"
 	"time"
 
 	"message-relay/internal/app/logger"
+	"message-relay/internal/app/storage"
 )
 
 //
@@ -14,7 +14,7 @@ type Remover struct {
 	logger   logger.Logger
 	interval time.Duration
 	done     chan struct{}
-	db       *sql.DB
+	repo     storage.IRepo
 }
 
 //
@@ -29,8 +29,8 @@ func NewRemover(removerParams RemoverParams) *Remover {
 	return &Remover{
 		logger:   removerParams.Logger,
 		interval: removerParams.Interval,
-		db:       removerParams.DB,
 		done:     make(chan struct{}),
+		repo:     storage.NewRepo(removerParams.DB),
 	}
 }
 
@@ -56,11 +56,13 @@ func (r *Remover) Start(wg *sync.WaitGroup) {
 	}()
 }
 
+//
 func (r *Remover) ShutDown() {
 	r.logger.Debug("Remover is shutting down")
 	r.done <- struct{}{}
 }
 
+//
 func (r *Remover) do() {
-	fmt.Println("Do2")
+
 }
