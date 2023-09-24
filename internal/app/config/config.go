@@ -4,16 +4,20 @@ import (
 	"github.com/spf13/viper"
 )
 
-const CONFIG = "./config.yaml"
+const CONFIGPATH = "./config.yaml"
 
 type Config struct {
 	Logger   Logger
 	Database Database
+	OutboxGC OutboxGC
+	Relay    Relay
+	Elastic  Elastic
+	Kafka    Kafka
 }
 
 func Load() (*Config, error) {
 	var c Config
-	viper.SetConfigFile(CONFIG)
+	viper.SetConfigFile(CONFIGPATH)
 	err := viper.ReadInConfig()
 	if err != nil {
 		return nil, err

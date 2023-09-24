@@ -3,4 +3,18 @@ log:
   path: log/info.log
 
 database:
-  url: "postgres://pqgotest:password@localhost/pqgotest?sslmode=verify-full"
+  url: "postgres://pqgotest:password@localhost/pqgotest?sslmode=disable"
+  table: "alert"
+
+outboxGC:
+  retries: 5
+  timeout: 3
+  interval: 5
+
+relay:
+
+es:
+
+kafka:
+
+  

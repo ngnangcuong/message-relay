@@ -19,6 +19,7 @@ func Run() error {
 	return shutdown()
 }
 
+// loadConfig loads all config in file configuration and set some defaults value for some config
 func loadConfig() (*config.Config, error) {
 	c, err := config.Load()
 	if err != nil {
@@ -26,6 +27,11 @@ func loadConfig() (*config.Config, error) {
 	}
 
 	c.Logger.GetLogger()
+	c.Database.GetDatabase()
+	c.OutboxGC.GetOutboxGC()
+	c.Relay.GetRelay()
+	c.Elastic.GetElastic()
+	c.Kafka.GetKafka()
 
 	return c, nil
 }
@@ -37,12 +43,20 @@ func start() error {
 		return err
 	}
 
-	db, err := storage.GetPostgres(c)
-	if err != nil {
-		return err
+	db, dErr := storage.GetPostgres(c)
+	if dErr != nil {
+		return dErr
+	}
+	es, eErr := storage.GetESClient(c)
+	if eErr != nil {
+		return eErr
+	}
+	kafka, kErr := storage.GetKafkaProducer(c)
+	if kErr != nil {
+		return kErr
 	}
 
-	srv = server.NewServer(c, db)
+	srv = server.NewServer(c, db, es, kafka)
 	return srv.Start()
 }
 

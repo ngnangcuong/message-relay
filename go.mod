@@ -3,12 +3,15 @@ module message-relay
 go 1.21
 
 require (
+	github.com/elastic/go-elasticsearch v0.0.0
 	github.com/lib/pq v1.10.9
 	github.com/spf13/viper v1.16.0
 	go.uber.org/zap v1.26.0
+	gopkg.in/confluentinc/confluent-kafka-go.v1 v1.8.2
 )
 
 require (
+	github.com/confluentinc/confluent-kafka-go v1.9.2 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
@@ -22,6 +25,7 @@ require (
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
+	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
